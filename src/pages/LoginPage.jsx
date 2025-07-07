@@ -14,7 +14,7 @@ export default function LoginPage() {
     setSuccess("");
 
     try {
-      const response = await fetch("http://localhost:8080/api/users/login", {
+      const response = await fetch("https://be-eventflow.onrender.com/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -90,7 +90,7 @@ export default function LoginPage() {
 
   <div style={sectionTitle}>📘 API Documentation</div>
   <a
-    href="http://localhost:8080/api/swagger-ui/index.html"
+    href="https://be-eventflow.onrender.com/api/swagger-ui/index.html"
     target="_blank"
     rel="noopener noreferrer"
     style={linkStyle}

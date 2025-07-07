@@ -60,8 +60,8 @@ export default function NewEventPage() {
       });
 
       const url = isSubEvent
-        ? `http://localhost:8080/api/events/${parentEventId}/sub-events?${params.toString()}`
-        : `http://localhost:8080/api/events/?${params.toString()}`;
+        ? `https://be-eventflow.onrender.com/api/events/${parentEventId}/sub-events?${params.toString()}`
+        : `https://be-eventflow.onrender.com/api/events/?${params.toString()}`;
 
       const res = await fetch(url, {
         method: "POST",
