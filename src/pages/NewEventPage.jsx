@@ -60,8 +60,8 @@ export default function NewEventPage() {
       });
 
       const url = isSubEvent
-        ? `https://be-eventflow.onrender.com/api/events/${parentEventId}/sub-events?${params.toString()}`
-        : `https://be-eventflow.onrender.com/api/events/?${params.toString()}`;
+        ? `https://event-flow-six.vercel.app/api/events/${parentEventId}/sub-events?${params.toString()}`
+        : `https://event-flow-six.vercel.app/api/events/?${params.toString()}`;
 
       const res = await fetch(url, {
         method: "POST",

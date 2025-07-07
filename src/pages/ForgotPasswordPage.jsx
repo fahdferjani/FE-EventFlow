@@ -12,7 +12,7 @@ export default function ForgotPasswordPage() {
     setError("");
 
     try {
-      const response = await fetch(`https://be-eventflow.onrender.com/api/auth/forgot-password?email=${encodeURIComponent(email)}`, {
+      const response = await fetch(`https://event-flow-six.vercel.app/api/auth/forgot-password?email=${encodeURIComponent(email)}`, {
         method: "POST",
       });
 

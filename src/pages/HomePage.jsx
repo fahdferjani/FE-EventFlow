@@ -14,15 +14,15 @@ export default function HomePage() {
     const headers = { Authorization: `Bearer ${token}` };
 
     const eventsUrl = showOpenOnly
-      ? "https://be-eventflow.onrender.com/api/events/?filter=true"
-      : "https://be-eventflow.onrender.com/api/events/";
+      ? "https://event-flow-six.vercel.app/api/events/?filter=true"
+      : "https://event-flow-six.vercel.app/api/events/";
 
     fetch(eventsUrl, { headers })
       .then((res) => (res.ok ? res.json() : Promise.reject("Failed to fetch events")))
       .then(setEvents)
       .catch(() => setEvents([]));
 
-    fetch("https://be-eventflow.onrender.com/api/invitations/my-invited-events", { headers })
+    fetch("https://event-flow-six.vercel.app/api/invitations/my-invited-events", { headers })
       .then((res) => (res.ok ? res.json() : Promise.reject("Failed to fetch invited events")))
       .then(setInvitedEvents)
       .catch(() => setInvitedEvents([]));
@@ -48,12 +48,12 @@ export default function HomePage() {
       if (!invitedEvent) return setEventItems((prev) => ({ ...prev, [eventId]: [] }));
       const contactId = invitedEvent.ownerID;
 
-      fetch(`https://be-eventflow.onrender.com/api/invitations/invited-events/${eventId}/sub-events?contactId=${contactId}`, { headers })
+      fetch(`https://event-flow-six.vercel.app/api/invitations/invited-events/${eventId}/sub-events?contactId=${contactId}`, { headers })
         .then((res) => (res.ok ? res.json() : Promise.reject("Failed to fetch sub events")))
         .then((data) => setEventItems((prev) => ({ ...prev, [eventId]: data })))
         .catch(() => setEventItems((prev) => ({ ...prev, [eventId]: [] })));
     } else {
-      fetch(`https://be-eventflow.onrender.com/api/events/${eventId}/sub-events`, { headers })
+      fetch(`https://event-flow-six.vercel.app/api/events/${eventId}/sub-events`, { headers })
         .then((res) => (res.ok ? res.json() : Promise.reject("Failed to fetch sub events")))
         .then((data) => setEventItems((prev) => ({ ...prev, [eventId]: data })))
         .catch(() => setEventItems((prev) => ({ ...prev, [eventId]: [] })));

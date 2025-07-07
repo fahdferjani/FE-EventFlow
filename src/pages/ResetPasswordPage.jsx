@@ -29,7 +29,7 @@ export default function ResetPasswordPage() {
       return;
     }
     try {
-      const response = await fetch("https://be-eventflow.onrender.com/api/auth/reset-password", {
+      const response = await fetch("https://event-flow-six.vercel.app/api/auth/reset-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token, newPassword }),
