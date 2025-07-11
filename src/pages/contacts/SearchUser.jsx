@@ -17,7 +17,7 @@ export default function SearchUser() {
     setSendError('');
     try {
       const response = await fetch(
-        `https://event-flow-six.vercel.app/api/users/search?email=${encodeURIComponent(email)}`,
+        `https://be-eventflow.onrender.com/api/users/search?email=${encodeURIComponent(email)}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -40,7 +40,7 @@ export default function SearchUser() {
     setSendError('');
     try {
       const response = await fetch(
-        `https://event-flow-six.vercel.app/api/users/invitations?contactId=${result.id}`,
+        `https://be-eventflow.onrender.com/api/users/invitations?contactId=${result.id}`,
         {
           method: 'POST',
           headers: { Authorization: `Bearer ${token}` },

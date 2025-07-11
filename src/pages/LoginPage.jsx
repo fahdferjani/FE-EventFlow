@@ -14,7 +14,7 @@ export default function LoginPage() {
     setSuccess("");
 
     try {
-      const response = await fetch("https://event-flow-six.vercel.app/api/users/login", {
+      const response = await fetch("https://be-eventflow.onrender.com/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -90,7 +90,7 @@ export default function LoginPage() {
 
   <div style={sectionTitle}>📘 API Documentation</div>
   <a
-    href="https://event-flow-six.vercel.app/api/swagger-ui/index.html"
+    href="https://be-eventflow.onrender.com/api/swagger-ui/index.html"
     target="_blank"
     rel="noopener noreferrer"
     style={linkStyle}

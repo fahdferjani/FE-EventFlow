@@ -9,7 +9,7 @@ export default function SentInvitations() {
   const fetchSentInvitations = () => {
     setLoading(true);
     setError("");
-    fetch("https://event-flow-six.vercel.app/api/users/invitations/sent", {
+    fetch("https://be-eventflow.onrender.com/api/users/invitations/sent", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) =>
@@ -29,7 +29,7 @@ export default function SentInvitations() {
 
     try {
       const res = await fetch(
-        `https://event-flow-six.vercel.app/api/users/invitations/${invitationId}`,
+        `https://be-eventflow.onrender.com/api/users/invitations/${invitationId}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },

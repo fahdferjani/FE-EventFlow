@@ -11,7 +11,7 @@ export default function ContactsList() {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch("https://event-flow-six.vercel.app/api/users/contacts", {
+      const response = await fetch("https://be-eventflow.onrender.com/api/users/contacts", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Failed to fetch friends");
@@ -32,7 +32,7 @@ export default function ContactsList() {
     if (!window.confirm("Are you sure you want to delete this friend?")) return;
     setDeletingId(contactId);
     try {
-      const response = await fetch(`https://event-flow-six.vercel.app/api/users/contacts/${contactId}`, {
+      const response = await fetch(`https://be-eventflow.onrender.com/api/users/contacts/${contactId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

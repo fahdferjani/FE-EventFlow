@@ -15,7 +15,7 @@ export default function InvitedEventPage() {
   useEffect(() => {
     if (!token) return;
 
-    fetch("https://event-flow-six.vercel.app/api/users/me", {
+    fetch("https://be-eventflow.onrender.com/api/users/me", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.ok ? res.json() : Promise.reject("Failed to get current user"))
@@ -26,7 +26,7 @@ export default function InvitedEventPage() {
   useEffect(() => {
     if (!token) return;
 
-    fetch(`https://event-flow-six.vercel.app/api/invitations/my-invited-events/${eventId}`, {
+    fetch(`https://be-eventflow.onrender.com/api/invitations/my-invited-events/${eventId}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.ok ? res.json() : Promise.reject("Failed to load invited event"))
@@ -43,7 +43,7 @@ export default function InvitedEventPage() {
   useEffect(() => {
     if (!token) return;
 
-    fetch(`https://event-flow-six.vercel.app/api/invitations/comments/${eventId}`, {
+    fetch(`https://be-eventflow.onrender.com/api/invitations/comments/${eventId}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.ok ? res.json() : Promise.reject("Failed to load comments"))
@@ -59,7 +59,7 @@ export default function InvitedEventPage() {
 
     try {
       const res = await fetch(
-        `https://event-flow-six.vercel.app/api/invitations/comment?eventId=${eventId}&text=${encodeURIComponent(commentText)}`,
+        `https://be-eventflow.onrender.com/api/invitations/comment?eventId=${eventId}&text=${encodeURIComponent(commentText)}`,
         {
           method: "POST",
           headers: {
@@ -71,7 +71,7 @@ export default function InvitedEventPage() {
       if (!res.ok) throw new Error("Failed to add comment");
 
       setCommentText("");
-      const refreshedComments = await fetch(`https://event-flow-six.vercel.app/api/invitations/comments/${eventId}`, {
+      const refreshedComments = await fetch(`https://be-eventflow.onrender.com/api/invitations/comments/${eventId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (refreshedComments.ok) {
@@ -87,14 +87,14 @@ export default function InvitedEventPage() {
     if (!window.confirm("Are you sure you want to delete this comment?")) return;
 
     try {
-      const res = await fetch(`https://event-flow-six.vercel.app/api/invitations/comments/${commentId}`, {
+      const res = await fetch(`https://be-eventflow.onrender.com/api/invitations/comments/${commentId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
 
       if (!res.ok) throw new Error("Failed to delete comment");
 
-      const refreshedComments = await fetch(`https://event-flow-six.vercel.app/api/invitations/comments/${eventId}`, {
+      const refreshedComments = await fetch(`https://be-eventflow.onrender.com/api/invitations/comments/${eventId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (refreshedComments.ok) {

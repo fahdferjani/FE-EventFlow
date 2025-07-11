@@ -18,7 +18,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     if (!token) return;
-    fetch("https://event-flow-six.vercel.app/api/users/me", {
+    fetch("https://be-eventflow.onrender.com/api/users/me", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
@@ -41,7 +41,7 @@ export default function ProfilePage() {
     setSuccess("");
 
     try {
-      const res = await fetch("https://event-flow-six.vercel.app/api/users/me", {
+      const res = await fetch("https://be-eventflow.onrender.com/api/users/me", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export default function ProfilePage() {
     }
     try {
       // Adjust endpoint & request body according to your backend API
-      const res = await fetch("https://event-flow-six.vercel.app/api/users/me", {
+      const res = await fetch("https://be-eventflow.onrender.com/api/users/me", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -111,7 +111,7 @@ export default function ProfilePage() {
     setDeleteError("");
 
     try {
-      const res = await fetch("https://event-flow-six.vercel.app/api/users/me", {
+      const res = await fetch("https://be-eventflow.onrender.com/api/users/me", {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

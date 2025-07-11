@@ -12,7 +12,7 @@ export default function EventInvitationsPage() {
   useEffect(() => {
     if (!token) return;
 
-    fetch("https://event-flow-six.vercel.app/api/invitations/my-pending-invitations", {
+    fetch("https://be-eventflow.onrender.com/api/invitations/my-pending-invitations", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => (res.ok ? res.json() : Promise.reject("Failed to load invitations")))
@@ -22,7 +22,7 @@ export default function EventInvitationsPage() {
   }, [token]);
 
   const handleAction = (eventId, action) => {
-    fetch(`https://event-flow-six.vercel.app/api/invitations/invitation/${eventId}/${action}`, {
+    fetch(`https://be-eventflow.onrender.com/api/invitations/invitation/${eventId}/${action}`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
     })
